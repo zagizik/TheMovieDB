@@ -19,6 +19,8 @@
 		116E8D852667F0ED006A8BF0 /* Extentions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E8D842667F0EC006A8BF0 /* Extentions+UIView.swift */; };
 		116E8D882667F350006A8BF0 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E8D872667F350006A8BF0 /* ModuleBuilder.swift */; };
 		116E8D8A2667F3B7006A8BF0 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E8D892667F3B7006A8BF0 /* Router.swift */; };
+		116E8D8D26691EA6006A8BF0 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E8D8C26691EA6006A8BF0 /* DetailPresenter.swift */; };
+		116E8D9026691EEF006A8BF0 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E8D8F26691EEF006A8BF0 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		116E8D842667F0EC006A8BF0 /* Extentions+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extentions+UIView.swift"; sourceTree = "<group>"; };
 		116E8D872667F350006A8BF0 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
 		116E8D892667F3B7006A8BF0 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		116E8D8C26691EA6006A8BF0 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		116E8D8F26691EEF006A8BF0 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,7 @@
 				114EA5D926664B9B0059CB11 /* SceneDelegate.swift */,
 				116E8D872667F350006A8BF0 /* ModuleBuilder.swift */,
 				116E8D892667F3B7006A8BF0 /* Router.swift */,
+				116E8D8B26691E79006A8BF0 /* DetailModule */,
 				114EA5F2266784CD0059CB11 /* MainModule */,
 				114EA5F5266785140059CB11 /* ServiceLayer */,
 				116E8D862667F0F1006A8BF0 /* Extention */,
@@ -131,6 +136,31 @@
 				116E8D842667F0EC006A8BF0 /* Extentions+UIView.swift */,
 			);
 			path = Extention;
+			sourceTree = "<group>";
+		};
+		116E8D8B26691E79006A8BF0 /* DetailModule */ = {
+			isa = PBXGroup;
+			children = (
+				116E8D9126691EF4006A8BF0 /* View */,
+				116E8D8E26691EB2006A8BF0 /* Presenter */,
+			);
+			path = DetailModule;
+			sourceTree = "<group>";
+		};
+		116E8D8E26691EB2006A8BF0 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				116E8D8C26691EA6006A8BF0 /* DetailPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		116E8D9126691EF4006A8BF0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				116E8D8F26691EEF006A8BF0 /* DetailView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,7 +236,9 @@
 				114EA5F0266784B60059CB11 /* MainPresenter.swift in Sources */,
 				114EA5DC26664B9B0059CB11 /* MainView.swift in Sources */,
 				114EA5D826664B9A0059CB11 /* AppDelegate.swift in Sources */,
+				116E8D8D26691EA6006A8BF0 /* DetailPresenter.swift in Sources */,
 				116E8D882667F350006A8BF0 /* ModuleBuilder.swift in Sources */,
+				116E8D9026691EEF006A8BF0 /* DetailView.swift in Sources */,
 				116E8D8A2667F3B7006A8BF0 /* Router.swift in Sources */,
 				114EA5DA26664B9B0059CB11 /* SceneDelegate.swift in Sources */,
 				114EA5F42667850A0059CB11 /* NetworkService.swift in Sources */,

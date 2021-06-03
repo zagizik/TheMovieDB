@@ -13,7 +13,6 @@ class NetworkService: NetworkServiceProtocol {
         urlConstructor.queryItems = [URLQueryItem(name: "api_key", value: "a77fcc7c6a3a934746427df05b2abd6c")]
 
         guard let url = urlConstructor.url else {return}
-        print(url)
         URLSession.shared.dataTask(with: url) { data, _, error in
             if let error = error {
                 complition(.failure(error))

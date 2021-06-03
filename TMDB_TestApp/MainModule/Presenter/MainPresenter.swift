@@ -40,6 +40,6 @@ class MainPresenter: MainViewPresenterProtocol {
     }
     
     func tapOnMovie(movie: Movie?) {
-        print(movie)
+        router?.showDetail(movie: movie)
     }
 }

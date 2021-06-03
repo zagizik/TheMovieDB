@@ -6,6 +6,8 @@ protocol RouterMain {
 }
 protocol RouterProtocol {
     func initialViewController()
+    func showDetail(movie: Movie?)
+    func popToRoot()
 }
 
 class Router: RouterProtocol {
@@ -25,5 +27,15 @@ class Router: RouterProtocol {
         }
     }
     
+    func showDetail(movie: Movie?) {
+        if let navigationController = navigationController {
+            guard let detailViewController = assamblyBuilder?.createDetailModule(movie: movie, router: self) else { return }
+            navigationController.pushViewController(detailViewController, animated: true)
+        }
+    }
+    
+    func popToRoot() {
+        navigationController?.popToRootViewController(animated: true)
+    }
     
 }
