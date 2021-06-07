@@ -2,6 +2,7 @@ import Foundation
 
 protocol NetworkServiceProtocol {
     func getTopRated(complition: @escaping (Result<[Movie]?, Error>) -> Void)
+    func fetchImage(from imagePath: String?, completion: @escaping (Result<Data?, Error>) -> Void)
 }
 
 class NetworkService: NetworkServiceProtocol {
@@ -28,5 +29,21 @@ class NetworkService: NetworkServiceProtocol {
                 complition(.failure(error))
             }
         }.resume()
+    }
+    
+    func fetchImage(from imagePath: String?, completion: @escaping (Result<Data?, Error>) -> Void ) {
+        let session = URLSession.shared
+        guard let imagePath = imagePath else { return }
+        let url = URL(string: "https://www.themoviedb.org/t/p/w440_and_h660_face/" + imagePath)
+            
+        let dataTask = session.dataTask(with: url!) { (data, response, error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            } else {
+                completion(.success(data))
+            }
+        }
+        dataTask.resume()
     }
 }

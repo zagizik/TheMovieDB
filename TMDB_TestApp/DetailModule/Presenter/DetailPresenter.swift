@@ -1,26 +1,18 @@
-import Foundation
+import UIKit
 
 protocol DetailViewProtocol: AnyObject {
     func setDetailView(movie: Movie?)
+    func setPoster(poster: UIImage?)
 }
 
 protocol DetailPresenterProtocol: AnyObject {
     init (view: DetailViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol, movie: Movie?)
     func setMovie()
     func tapToRoot()
+    func getPoster()
 }
 
 class DetailPresenter: DetailPresenterProtocol {
-
-    
-    func setMovie() {
-        self.view?.setDetailView(movie: movie)
-    }
-    
-    func tapToRoot() {
-        router?.popToRoot()
-    }
-    
     
     weak var view: DetailViewProtocol?
     let networkService: NetworkServiceProtocol
@@ -32,9 +24,27 @@ class DetailPresenter: DetailPresenterProtocol {
         self.networkService = networkService
         self.router = router
         self.movie = movie
+        getPoster()
     }
     
-    func setDetailView(movie: Movie?) {
-        
+    func setMovie() {
+        self.view?.setDetailView(movie: movie)
+    }
+    
+    func getPoster() {
+        networkService.fetchImage(from: movie?.posterPath) { [weak self] result in
+            switch result {
+            case .success(let data):
+                guard let data = data else { return }
+                let poster = UIImage(data: data)
+                self?.view?.setPoster(poster: poster)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func tapToRoot() {
+        router?.popToRoot()
     }
 }
