@@ -2,7 +2,7 @@ import UIKit
 
 protocol AssemblyBuilderProtocol {
     func createMainModule(router: RouterProtocol) -> UIViewController
-    func createDetailModule(movie: Movie?, router: RouterProtocol) -> UIViewController
+    func createDetailModule(movie: Movie?, poster: UIImage, router: RouterProtocol) -> UIViewController
 }
 
 class ModuleBuilder: AssemblyBuilderProtocol {
@@ -14,14 +14,12 @@ class ModuleBuilder: AssemblyBuilderProtocol {
         return view
     }
     
-    func createDetailModule(movie: Movie?, router: RouterProtocol) -> UIViewController {
+    func createDetailModule(movie: Movie?, poster: UIImage, router: RouterProtocol) -> UIViewController {
         let networkService = NetworkService()
         let view = DetailView()
-        let presenter = DetailPresenter(view: view, networkService: networkService, router: router, movie: movie)
+        let poster = poster
+        let presenter = DetailPresenter(view: view, networkService: networkService, router: router, movie: movie, poster: poster)
         view.presenter = presenter
         return view
     }
-
-
-    
 }

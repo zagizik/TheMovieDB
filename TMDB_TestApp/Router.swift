@@ -4,9 +4,9 @@ protocol RouterMain {
     var navigationController: UINavigationController? { get set }
     var assamblyBuilder: AssemblyBuilderProtocol? { get set }
 }
-protocol RouterProtocol {
+protocol RouterProtocol: RouterMain {
     func initialViewController()
-    func showDetail(movie: Movie?)
+    func showDetail(movie: Movie?, poster: UIImage)
     func popToRoot()
 }
 
@@ -27,9 +27,9 @@ class Router: RouterProtocol {
         }
     }
     
-    func showDetail(movie: Movie?) {
+    func showDetail(movie: Movie?, poster: UIImage) {
         if let navigationController = navigationController {
-            guard let detailViewController = assamblyBuilder?.createDetailModule(movie: movie, router: self) else { return }
+            guard let detailViewController = assamblyBuilder?.createDetailModule(movie: movie, poster: poster, router: self) else { return }
             navigationController.pushViewController(detailViewController, animated: true)
         }
     }
@@ -37,5 +37,4 @@ class Router: RouterProtocol {
     func popToRoot() {
         navigationController?.popToRootViewController(animated: true)
     }
-    
 }
