@@ -21,6 +21,7 @@
 		116E8D8A2667F3B7006A8BF0 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E8D892667F3B7006A8BF0 /* Router.swift */; };
 		116E8D8D26691EA6006A8BF0 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E8D8C26691EA6006A8BF0 /* DetailPresenter.swift */; };
 		116E8D9026691EEF006A8BF0 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E8D8F26691EEF006A8BF0 /* DetailView.swift */; };
+		116E8D93266E56B7006A8BF0 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E8D92266E56B7006A8BF0 /* MovieCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		116E8D892667F3B7006A8BF0 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		116E8D8C26691EA6006A8BF0 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		116E8D8F26691EEF006A8BF0 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		116E8D92266E56B7006A8BF0 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				114EA5DB26664B9B0059CB11 /* MainView.swift */,
+				116E8D92266E56B7006A8BF0 /* MovieCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			files = (
 				114EA5F0266784B60059CB11 /* MainPresenter.swift in Sources */,
 				114EA5DC26664B9B0059CB11 /* MainView.swift in Sources */,
+				116E8D93266E56B7006A8BF0 /* MovieCell.swift in Sources */,
 				114EA5D826664B9A0059CB11 /* AppDelegate.swift in Sources */,
 				116E8D8D26691EA6006A8BF0 /* DetailPresenter.swift in Sources */,
 				116E8D882667F350006A8BF0 /* ModuleBuilder.swift in Sources */,
