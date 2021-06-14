@@ -1,15 +1,14 @@
 import UIKit
 
 protocol DetailViewProtocol: AnyObject {
-    func setDetailView(movie: Movie?)
+    func setDetailView(movie: Movie?, poster: UIImage)
     func setPoster(poster: UIImage?)
 }
 
 protocol DetailPresenterProtocol: AnyObject {
-    init (view: DetailViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol, movie: Movie?)
+    init (view: DetailViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol, movie: Movie?, poster: UIImage)
     func setMovie()
     func tapToRoot()
-    func getPoster()
 }
 
 class DetailPresenter: DetailPresenterProtocol {
@@ -18,30 +17,18 @@ class DetailPresenter: DetailPresenterProtocol {
     let networkService: NetworkServiceProtocol
     var router: RouterProtocol?
     let movie: Movie?
+    let poster: UIImage
     
-    required init(view: DetailViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol, movie: Movie?) {
+    required init(view: DetailViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol, movie: Movie?, poster: UIImage) {
         self.view = view
         self.networkService = networkService
         self.router = router
         self.movie = movie
-        getPoster()
+        self.poster = poster
     }
     
     func setMovie() {
-        self.view?.setDetailView(movie: movie)
-    }
-    
-    func getPoster() {
-        networkService.fetchImage(from: movie?.posterPath) { [weak self] result in
-            switch result {
-            case .success(let data):
-                guard let data = data else { return }
-                let poster = UIImage(data: data)
-                self?.view?.setPoster(poster: poster)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+        self.view?.setDetailView(movie: movie, poster: poster)
     }
     
     func tapToRoot() {

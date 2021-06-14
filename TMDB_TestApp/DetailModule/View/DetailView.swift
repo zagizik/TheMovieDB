@@ -1,10 +1,3 @@
-//
-//  DetailView.swift
-//  TMDB_TestApp
-//
-//  Created by Александр Банников on 03.06.2021.
-//
-
 import UIKit
 
 class DetailView: UIViewController {
@@ -24,21 +17,19 @@ class DetailView: UIViewController {
     
     let movieTitleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
         label.numberOfLines = 1
         return label
     }()
     
     let movieOverviewLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
         label.numberOfLines = 0
         return label
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         
         view.addSubview(scrollView)
         scrollView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
@@ -50,7 +41,6 @@ class DetailView: UIViewController {
         movieOverviewLabel.anchor(top: movieTitleLabel.bottomAnchor, leading: scrollView.safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: scrollView.safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 10, left: 10, bottom: 10, right: 10))
         presenter.setMovie()
     }
-
 }
 
 extension DetailView: DetailViewProtocol {
@@ -61,9 +51,10 @@ extension DetailView: DetailViewProtocol {
         }
     }
     
-    func setDetailView(movie: Movie?) {
+    func setDetailView(movie: Movie?, poster: UIImage) {
         navigationItem.title = movie?.title
         movieTitleLabel.text = movie?.title
         movieOverviewLabel.text = movie?.overview
+        moviePoster.image = poster
     }
 }
